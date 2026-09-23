@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Offline AI Reminder</title>
+<meta name="description" content="Help for Offline AI Reminder: what you can say, repeats, the calendar, the score, iPad, accessibility, and how to get in touch.">
+<style>
+  :root { --bg:#000; --surface:#0d0e10; --line:#2a2d32; --ink:#fff; --ink-2:#9ba2aa; --ink-3:#676e76;
+          --metal:linear-gradient(135deg,#fff6dd 0%,#c9b274 28%,#f6e9c6 52%,#9a8450 78%,#e0ce9c 100%); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.7 -apple-system,BlinkMacSystemFont,"SF Pro Text",Segoe UI,Roboto,sans-serif;
+         -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:64px 24px 96px; }
+  .mark { width:56px; height:56px; display:block; margin:0 0 22px; border-radius:50%;
+          border:1px solid var(--line); }
+  h1 { font-size:clamp(28px,6vw,40px); margin:0 0 10px; letter-spacing:-0.02em; font-weight:600;
+       background:var(--metal); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lede { color:var(--ink-2); margin:0 0 40px; }
+  h2 { font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);
+       margin:52px 0 16px; font-weight:600; }
+  .q { background:var(--surface); border:1px solid var(--line); border-radius:18px;
+       padding:22px 24px; margin:12px 0; }
+  .q h3 { margin:0 0 8px; font-size:17px; font-weight:600; }
+  .q p  { margin:0 0 10px; color:var(--ink-2); }
+  .q p:last-child { margin-bottom:0; }
+  .say { display:grid; gap:8px; list-style:none; padding:0; margin:0; }
+  .say li { background:var(--surface); border:1px solid var(--line); border-radius:999px;
+            padding:11px 20px; color:var(--ink); font-size:16px; }
+  code { background:var(--surface); border:1px solid var(--line); border-radius:6px;
+         padding:1px 6px; font-size:14px; }
+  a { color:var(--ink); }
+  footer { border-top:1px solid var(--line); margin-top:56px; padding-top:24px;
+           color:var(--ink-3); font-size:14px; }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#fff; --surface:#f4f5f7; --line:#e2e4e8; --ink:#000; --ink-2:#565c63; --ink-3:#8a9097;
+            --metal:linear-gradient(135deg,#8a6e26 0%,#3a2d0c 28%,#6e5718 52%,#241c06 78%,#5a4714 100%); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <clipPath id="disc"><circle cx="50" cy="50" r="50"/></clipPath>
+        <clipPath id="lh"><rect x="0" y="0" width="50" height="100"/></clipPath>
+        <clipPath id="rh"><rect x="50" y="0" width="50" height="100"/></clipPath>
+        <linearGradient id="silver" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0"    stop-color="#fafbfc"/>
+          <stop offset="0.30" stop-color="#c6ccd3"/>
+          <stop offset="0.55" stop-color="#edf0f3"/>
+          <stop offset="0.78" stop-color="#949ba3"/>
+          <stop offset="1"    stop-color="#d5dae0"/>
+        </linearGradient>
+        <linearGradient id="gold" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0"    stop-color="#fbedcb"/>
+          <stop offset="0.30" stop-color="#d9b75f"/>
+          <stop offset="0.55" stop-color="#f3dfa8"/>
+          <stop offset="0.78" stop-color="#a8863a"/>
+          <stop offset="1"    stop-color="#e4c888"/>
+        </linearGradient>
+        <linearGradient id="on-silver" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0"    stop-color="#8c6d1e"/>
+          <stop offset="0.35" stop-color="#5c4710"/>
+          <stop offset="0.65" stop-color="#a6832c"/>
+          <stop offset="1"    stop-color="#513f0c"/>
+        </linearGradient>
+        <linearGradient id="on-gold" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0"    stop-color="#555d66"/>
+          <stop offset="0.35" stop-color="#262b30"/>
+          <stop offset="0.65" stop-color="#6a737c"/>
+          <stop offset="1"    stop-color="#1e2227"/>
+        </linearGradient>
+      </defs>
+      <g clip-path="url(#disc)">
+        <rect x="0" y="0" width="50" height="100" fill="url(#silver)"/>
+        <rect x="50" y="0" width="50" height="100" fill="url(#gold)"/>
+        <g clip-path="url(#lh)">
+          <rect x="21" y="21" width="58" height="58" rx="15" fill="none"
+                stroke="url(#on-silver)" stroke-width="6.2"/>
+          <path d="M34.5 50.5 L44.5 61 L66.5 38.5" fill="none" stroke="url(#on-silver)"
+                stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g clip-path="url(#rh)">
+          <rect x="21" y="21" width="58" height="58" rx="15" fill="none"
+                stroke="url(#on-gold)" stroke-width="6.2"/>
+          <path d="M34.5 50.5 L44.5 61 L66.5 38.5" fill="none" stroke="url(#on-gold)"
+                stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </svg>
+
+  <h1>Support</h1>
+  <p class="lede">Offline AI Reminder for iPhone and iPad. If the answer is not
+  here, write to <a href="mailto:sivavimelrajhen@gmail.com">sivavimelrajhen@gmail.com</a>
+  — it is read by a person, and the app keeps no logs, so what you say is
+  genuinely all there is to go on.</p>
+
+  <h2>Things you can say</h2>
+  <ul class="say">
+    <li>Remind me to call the dentist on Friday at 3</li>
+    <li>Take the pills every day at 9am</li>
+    <li>Pay the rent on the 1st</li>
+    <li>Put the bins out every other Monday</li>
+    <li>Book the car in on 14 March</li>
+    <li>Chase the invoice in two weeks</li>
+    <li>Send the report end of the month</li>
+    <li>Push the dentist back an hour</li>
+    <li>Move it to Friday</li>
+    <li>Mark the dentist as done</li>
+    <li>Delete the dentist reminder</li>
+    <li>What's on tomorrow?</li>
+    <li>What did I have on Monday?</li>
+    <li>What's overdue?</li>
+    <li>How many are left today?</li>
+    <li>What does my day look like?</li>
+    <li>How am I doing?</li>
+  </ul>
+  <p class="lede" style="margin-top:14px">The same words work in the
+  <strong>Add a reminder…</strong> field at the top of the Today screen. It is
+  the same grammar, so anything the assistant understands, that field
+  understands.</p>
+
+  <h2>Reminders</h2>
+
+  <div class="q">
+    <h3>How do I make something repeat?</h3>
+    <p>Say it — "every day", "on weekdays", "every Monday and Thursday", "every
+    other week", "monthly", "every third day" — or open the reminder and use the
+    Repeat card. Never, Day, Week, Month and Year are five pills; picking Week
+    shows the seven day circles and three presets.</p>
+    <p>A repeating reminder is <strong>one</strong> thing in your list, not one
+    per day. That is why the All list shows it once with a repeat symbol; the
+    days it lands on are in the Calendar.</p>
+  </div>
+
+  <div class="q">
+    <h3>What is the difference between all-day and a set time?</h3>
+    <p>A reminder with a set time is notified at that moment, and counts as late
+    the moment it passes. An all-day reminder belongs to the whole day: it only
+    counts as missed once the day is over.</p>
+    <p>Switch between them with <strong>At a set time</strong> in the editor.</p>
+  </div>
+
+  <div class="q">
+    <h3>What time does an all-day reminder actually tell me?</h3>
+    <p>At your <strong>default time of day</strong> — nine in the morning unless
+    you change it in Settings → Reminders → <strong>Default time of day</strong>. The editor prints the hour under the
+    switch, so you can see it at the moment you make the choice.</p>
+    <p>"Tomorrow" with no time said is an all-day reminder, so "remind me to
+    water the plants tomorrow" reaches you at nine tomorrow morning, not at
+    midnight. The day it belongs to starts at midnight; being told about it does
+    not.</p>
+  </div>
+
+  <div class="q">
+    <h3>What is the heads-up notification?</h3>
+    <p>An optional notice before a timed reminder — five minutes to a day ahead.
+    Set the default in Settings, or per reminder in the editor.</p>
+  </div>
+
+  <div class="q">
+    <h3>Why did the app choose a list for me?</h3>
+    <p>Because most of the time it can. "Pay the rent" is money, "take the
+    pills" is health, "put the bins out" is home. It goes on the words, and the
+    longest match wins, so "water the plants" is a chore rather than a health
+    habit. Tap the reminder and change the List row whenever it guesses wrong.</p>
+  </div>
+
+  <div class="q">
+    <h3>Something did not get understood</h3>
+    <p>Nothing is lost: if the app cannot read a date out of what you typed, it
+    keeps your words and puts the reminder on the default day and time from
+    Settings. Open it and set the date by hand.</p>
+    <p>In a conversation, an unrecognised request goes to the on-device model,
+    and what it reads is <em>offered</em> as a card for you to confirm — never
+    acted on by itself.</p>
+  </div>
+
+  <h2>Notifications</h2>
+
+  <div class="q">
+    <h3>Nothing popped up when a reminder was due</h3>
+    <p>Check, in order:</p>
+    <p><strong>Permission.</strong> Settings → Offline AI Reminder →
+    Notifications → Allow Notifications. The app asks the first time you have a
+    reminder; if you said no then, this is where to change it. There is also a
+    banner at the top of the Today screen when permission is off.</p>
+    <p><strong>A Focus.</strong> Normal and low-priority reminders are silenced
+    by a Focus, deliberately. Mark the ones that matter <strong>high
+    priority</strong> and they come through it.</p>
+    <p><strong>Scheduled Summary.</strong> If Offline AI Reminder is in your
+    notification summary, its notices are held back and delivered in a batch.
+    Remove it from the summary.</p>
+    <p><strong>Volume and the silent switch.</strong> A notification obeys both.</p>
+  </div>
+
+  <div class="q">
+    <h3>I have a lot of reminders and some did not arrive</h3>
+    <p>iOS keeps only the 64 soonest pending notifications per app and quietly
+    drops the rest — that is a system limit, not a setting. The app spends that
+    budget deliberately: the reminders themselves come first, the heads-up
+    notices take what is left, and the whole plan is rebuilt every time you open
+    the app. Opening it once a day is enough to keep it topped up.</p>
+  </div>
+
+  <div class="q">
+    <h3>What are the morning plan and evening review?</h3>
+    <p>Two optional daily notifications. The morning plan says how much is due
+    today, at an hour you choose. The evening review is a nudge at half past
+    eight to tick off what you actually finished. Both are off-by-default
+    switches in Settings, except the morning plan which starts on.</p>
+  </div>
+
+  <div class="q">
+    <h3>I want to see what one looks like</h3>
+    <p>Settings → Notifications → <strong>Preview a reminder</strong>. It
+    arrives in five seconds. Lock the phone to see it on the Lock Screen.</p>
+  </div>
+
+  <h2>The calendar</h2>
+
+  <div class="q">
+    <h3>What do the marks under the dates mean?</h3>
+    <p>A filled dot is a day where everything due got done. A half-filled one is
+    a day where some of it did. A hollow ring is a day that was missed. Small
+    bars are days still to come, one per thing due, up to three.</p>
+    <p>They are different <em>shapes</em>, not just different colours, so the
+    calendar works if you cannot tell the colours apart.</p>
+  </div>
+
+  <div class="q">
+    <h3>Today's square says "coming" but the reminder says overdue</h3>
+    <p>That is deliberate. A reminder that was due at nine is late at ten past.
+    The <em>day</em> is not a failure until it is over, so today's square is
+    never marked missed — you still have all day to clear it, and an app that
+    writes you off before lunch is one you stop opening.</p>
+  </div>
+
+  <div class="q">
+    <h3>Can I tick something off late?</h3>
+    <p>Yes, and it counts. Ticking off Tuesday's reminder on Thursday credits it
+    to Tuesday, which is where you will look for it. You lose the on-time bonus,
+    not the points.</p>
+  </div>
+
+  <div class="q">
+    <h3>My week starts on Sunday</h3>
+    <p>Settings → Appearance → Week starts on. It changes the calendar grid and
+    the weekly chart on the Score screen together, so the two always mean the
+    same thing.</p>
+  </div>
+
+  <h2>The score</h2>
+
+  <div class="q">
+    <h3>How are points worked out?</h3>
+    <p>Five for a low-priority reminder, ten for normal, fifteen for high, plus
+    five more if you finish before it was due. The full rules are written on the
+    Score screen, in the same words the app computes them with.</p>
+    <p>Points are banked when you tick something off and are never recalculated
+    afterwards. What you earned last month is what you earned, whatever a future
+    version's rules say.</p>
+  </div>
+
+  <div class="q">
+    <h3>My streak did not go up</h3>
+    <p>A day counts towards the streak when <strong>everything</strong> due on
+    it is done. One thing left open and the day is not cleared.</p>
+    <p>A day with nothing due does not break a streak — it is skipped. And today
+    never breaks it, however late it gets, until the day is actually over.</p>
+  </div>
+
+  <div class="q">
+    <h3>I un-ticked something and my score went down</h3>
+    <p>Yes — un-ticking takes the points back. It is a correction, not a
+    penalty, and the alternative is a total that only ever goes up regardless of
+    what is true.</p>
+  </div>
+
+  <div class="q">
+    <h3>What is the seven-day chart?</h3>
+    <p>Each day is two bars in one: an outline for what was due, and a solid
+    fill for what you finished. A full solid bar is a cleared day; an empty
+    outline is a missed one; nothing at all is a day with nothing due.</p>
+  </div>
+
+  <h2>The assistant</h2>
+
+  <div class="q">
+    <h3>Does anything I type get sent anywhere?</h3>
+    <p>No. The language model is a file inside the app and runs on your device.
+    There is no network code in the app at all — you can put the phone in
+    Airplane Mode and the assistant works exactly the same, which is the easiest
+    way to check the claim rather than take it on trust.</p>
+  </div>
+
+  <div class="q">
+    <h3>The first answer took a moment</h3>
+    <p>Opening the Ask tab loads the model, which is a few hundred megabytes.
+    That happens once per launch, and only if you go to that tab.</p>
+    <p>Dates, repeats and counts do not wait for it. Ask for a reminder while
+    the model is still loading and you will get it immediately — the
+    understanding was never the model's job.</p>
+  </div>
+
+  <div class="q">
+    <h3>It got my sentence wrong</h3>
+    <p>Two things help. Put the thing first and the timing last — "remind me to
+    call the dentist on Friday at 3" rather than "on Friday remind me about
+    3pm dentist". And say am or pm when it matters; without one the app picks
+    whichever comes round sooner, except on a named day, where a morning-ish
+    hour means the morning.</p>
+  </div>
+
+  <div class="q">
+    <h3>Can it be wrong about a date?</h3>
+    <p>It can misunderstand a sentence, and it says so — it shows you what it
+    set, and there is an Undo. What it will not do is <em>invent</em> one. Every
+    date and number on screen is computed by the app from your own data; the
+    model's sentence is checked for figures and discarded whole if it contains
+    any.</p>
+  </div>
+
+  <div class="q">
+    <h3>Can I turn the AI part off?</h3>
+    <p>Settings → Assistant → <strong>Written notes</strong>. The assistant
+    keeps working — parsing, creating, moving, answering — with no model
+    involvement at all.</p>
+  </div>
+
+  <h2>iPad</h2>
+
+  <div class="q">
+    <h3>Is there an iPad version?</h3>
+    <p>Yes, and it is a different interface rather than the phone one stretched:
+    a permanent sidebar instead of a tab bar, and two columns — the month beside
+    the day you are reading, your list beside your score.</p>
+  </div>
+
+  <div class="q">
+    <h3>It looks cramped in Split View</h3>
+    <p>In a narrow Split View slot the screens fall back to a single column,
+    which is the right layout for a pane that is genuinely phone-shaped. Widen
+    the slot and the second column comes back.</p>
+  </div>
+
+  <h2>Your data</h2>
+
+  <div class="q">
+    <h3>It said my reminders were recovered</h3>
+    <p>The app keeps a second copy of your list beside the first, written every
+    time anything changes. If the main file cannot be read at launch it is moved
+    aside — not deleted — the backup is used, and you are told.</p>
+    <p>Worth doing once: open the Calendar and check a few dates look right.</p>
+  </div>
+
+  <div class="q">
+    <h3>Is my list backed up or synced?</h3>
+    <p>Not by the app — there is no iCloud, no sync and no server. It is
+    included in your normal encrypted device backup, like any other app's data.</p>
+  </div>
+
+  <div class="q">
+    <h3>How do I get rid of my data?</h3>
+    <p>Delete the app. Everything goes with it: reminders, history, score and
+    settings. There is no account anywhere and nothing held by anybody else.</p>
+  </div>
+
+  <h2>Accessibility</h2>
+
+  <div class="q">
+    <h3>Can I make the text bigger?</h3>
+    <p>Yes. Settings → Display &amp; Brightness → Text Size, or Accessibility →
+    Display &amp; Text Size → Larger Text. The app follows it throughout and the
+    layout is tested at both the default and the largest accessibility size.</p>
+  </div>
+
+  <div class="q">
+    <h3>Does it work with VoiceOver?</h3>
+    <p>Yes. Every control is named, and the checkbox on each row is a separate
+    control from the row itself — so "open this" and "tick this off" are never
+    the same gesture. The calendar squares announce the date and how much of
+    that day got done. The tick boxes are 44 pt targets.</p>
+    <p>The calendar also distinguishes days by shape rather than colour alone.</p>
+  </div>
+
+  <h2>General</h2>
+
+  <div class="q">
+    <h3>Why is the download so large?</h3>
+    <p>The language model ships inside the app — a few hundred megabytes of it.
+    That is the price of an assistant that never sends anything anywhere: there
+    is no download step, no account and no server, because everything it needs
+    is already on your phone.</p>
+  </div>
+
+  <div class="q">
+    <h3>What does it need?</h3>
+    <p>iOS 17 or later, on iPhone or iPad. Nothing else — no account, no
+    network, no permissions beyond notifications.</p>
+  </div>
+
+  <h2>Contact</h2>
+
+  <div class="q">
+    <h3>Still stuck</h3>
+    <p>Email <a href="mailto:sivavimelrajhen@gmail.com">sivavimelrajhen@gmail.com</a>.
+    It helps to say what you typed, what you expected and what happened —
+    the app keeps no logs and sends nothing, so your description is genuinely
+    all there is to go on.</p>
+    <p>A screenshot is worth a paragraph, and the version number is at the
+    bottom of Settings.</p>
+  </div>
+
+  <div class="q">
+    <h3>Something the app got wrong</h3>
+    <p>Worth reporting even when you have worked around it, and especially the
+    sentences it misread: the grammar is the app's own, so a sentence that ought
+    to have worked is something that can be fixed rather than a limit of the
+    model. Quote the sentence exactly, including the words that seem
+    irrelevant — those are usually the ones that mattered.</p>
+  </div>
+
+  <footer>
+    <p>Offline AI Reminder for iPhone and iPad. Requires iOS 17 or later.
+    Built with Llama.</p>
+    <p>sivavimelrajhen@gmail.com</p>
+  </footer>
+
+</div>
+</body>
+</html>
